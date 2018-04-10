@@ -1,4 +1,4 @@
-gaps inner 15
+gaps inner 30
 
 for_window [class="^.*"] border pixel 2
 
@@ -17,7 +17,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Ubuntu Mono 8
+font pango:Terminus 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -159,16 +159,20 @@ bindsym $mod+n gaps inner current minus 5
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        position top
         status_command i3blocks
+  colors {
+    background #282A36
+  }
 }
 
-exec_always --no-startup-id wal -r
+#exec_always --no-startup-id wal -R
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id compton
-exec --no-startup-id syndaemon -i 1 -k -R -t
+#exec_always --no-startup-id compton -f -o "0.5" -m "1" -e "1" -D "3" -c -C -r "26" -l "-39" -t "-25" --shadow-red "0.05" --shadow-green "0.05" --shadow-blue "0.05" -b 
+exec --no-startup-id syndaemo
 
-set_from_resource $fg i3wm.color7
-set_from_resource $bg i3wm.color2
+#set_from_resource $fg i3wm.color7
+#set_from_resource $bg i3wm.color2
 
 #client.focused          $bg     $bg     $fg  $bg       $bg
 #client.focused_inactive $bg     $bg     $fg  $bg       $bg
